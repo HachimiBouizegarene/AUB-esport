@@ -2,7 +2,9 @@
     "name": "hachi/aub-esport",
     "autoload": {
         "psr-4": {
-            "Hachi\\AubEsport\\": "src/"
+            "Controller\\": "controllers/",
+            "Helper\\" : "helpers/",
+            "View\\" : "views/"
         }
     },
     "authors": [

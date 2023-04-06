@@ -1,13 +1,32 @@
 /* Header */
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap');
+*{
+    
+    padding: 0;
+    margin: 0;
+    font-family: 'Pathway Gothic One', sans-serif;
+    
+}
 
+body{
+    background-color: #126989;
+}
+
+
+header{
+    width: 100%;
+    height: fit-content;
+    background-color: black;
+}
 
 header nav{
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 1000px;
+    width: 1600px;
     justify-content: space-between;
     margin: auto;
+    height: 140px;
 }
 
 header nav ul{
@@ -15,4 +34,34 @@ header nav ul{
     align-items: center;
     text-decoration: none;
     list-style-type: none;
+}
+
+img#logo{
+    width: 220px;
+}
+
+img#ic_account{
+    width: 45px;
+    cursor: pointer;
+}
+
+header nav ul li {
+    
+}
+
+header nav ul li a{
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 2px;
+    padding: 12px; 
+    text-decoration: none;
+    color : white;
+    background-color: #126989;
+    margin: 0 7px;
+    transition: 0.4s all;
+}
+
+header nav ul li a:hover{
+   background-color: white;
+   color: black;
 }

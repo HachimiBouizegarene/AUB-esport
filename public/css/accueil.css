@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+.container{
+    margin: auto;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.container h1{
+    font-size: 100px;
+    font-family: 'Abril Fatface', cursive;
+    letter-spacing: 5px;
+    color: rgb(0, 0, 0);
+    
+}
+.container h2{
+    font-size: 60px;
+    font-family: 'Abril Fatface', cursive;
+    letter-spacing: 5px;
+    color: rgba(0, 0, 0, 0.829);
+}

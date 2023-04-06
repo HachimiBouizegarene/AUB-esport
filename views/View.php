@@ -7,17 +7,19 @@ class View{
 
     private $_file;
     private $_title;
+    private $_css;
 
 
-    public function __construct($action, $title)
+    public function __construct($action, $title, $css)
     {
+        $this->_css = "public/css/".$css.".css" ; 
         $this->_file = 'views/View'.$action.'.php';
         $this->_title = $title;
     }
 
     public function generate($data){
         $content = $this->generatefile($this->_file, $data);
-        $view = $this->generateFile('views/template.php', ['titre'=>$this->_title, 'content'=>$content]);
+        $view = $this->generateFile('views/template.php', ['titre'=>$this->_title, 'content'=>$content , "css"=> $this->_css]);
         echo $view;
     }
 
