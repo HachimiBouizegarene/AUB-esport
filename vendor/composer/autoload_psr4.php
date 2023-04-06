@@ -6,7 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'View\\' => array($baseDir . '/views'),
-    'Model\\' => array($baseDir . '/models'),
-    'Controller\\' => array($baseDir . '/controllers'),
+    'Hachi\\AubEsport\\' => array($baseDir . '/src'),
 );

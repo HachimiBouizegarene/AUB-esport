@@ -1,0 +1,15 @@
+{
+    "name": "hachi/aub-esport",
+    "autoload": {
+        "psr-4": {
+            "Hachi\\AubEsport\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hachimi",
+            "email": "hachimi.bouizegarene@outlook.fr"
+        }
+    ],
+    "require": {}
+}

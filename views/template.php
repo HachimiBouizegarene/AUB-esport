@@ -8,8 +8,12 @@
     <title><?php echo $titre ?></title>
 </head>
 
+<?php require 'header.php' ?>
+
 <body>
     
     <?= $content ?>
 </body>
+
+<?php require 'footer.php' ?>
 </html>
