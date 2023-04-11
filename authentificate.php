@@ -1,4 +1,4 @@
-<!-- sert a demader un mot de pass pour rentrer sur le site -->git 
+<!-- sert a demader un mot de pass pour rentrer sur le site -->
 
 <!DOCTYPE html>
 <html lang="en">
