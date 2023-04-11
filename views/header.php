@@ -4,10 +4,13 @@
     <nav>
         <ul>
             <li><a href="#">BILLETTERIE</a></li>
-            <li><a href="#">INSCRIPTION</a></li>
-            <li><a href="#">BOUITIQUE</a></li>
+            <li><a href="<?= URL."inscription" ?>">INSCRIPTION</a></li>
+            <li><a href="#">BOUTIQUE</a></li>
         </ul>
-        <img id="logo" src="<?= $viewHelper->getImg("logo.png") ?>" alt="logo"/>
+        <a href="<?= URL."Accueil ?>" ?> " >
+            <img id="logo" src="<?= $viewHelper->getImg("logo.png") ?>" alt="logo"/>
+        </a>
+        
         <ul>
             <li><a href="#">BLOG</a></li>
             <li><a href="#">PARTENAIRES</a></li>

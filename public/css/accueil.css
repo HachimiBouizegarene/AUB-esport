@@ -1,21 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
-.container{
-    margin: auto;
-    text-align: center;
-    margin-top: 10px;
+body{
+    background-image: url('../img/accueil_fond.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.596);
+    /* background: linear-gradient(#126989, black);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh; */
 }
 
-.container h1{
-    font-size: 100px;
-    font-family: 'Abril Fatface', cursive;
-    letter-spacing: 5px;
-    color: rgb(0, 0, 0);
-    
+.page{
+    /* margin-top: 100px; */
+    padding-top: 100px;
+    background-color: rgba(0, 0, 0, 0.274);
 }
-.container h2{
-    font-size: 60px;
-    font-family: 'Abril Fatface', cursive;
-    letter-spacing: 5px;
-    color: rgba(0, 0, 0, 0.829);
+
+.titre{
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    width: 100%;
+    cursor: pointer;
+}
+
+h1, h2{
+    text-align: center;
+}
+
+
+#btn_inscription{
+    margin: auto;
+    margin-top: 100px;
+    display: block;
+    font-size: 70px;
+    text-decoration: none;
+    color: white;
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.219);
+    padding: 20px;
+    border: 7px solid white;
+    transition: 0.2s all;
+}
+
+#btn_inscription:hover{
+    color: black;
+    background-color: white;
 }
