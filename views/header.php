@@ -7,7 +7,7 @@
             <li><a href="<?= URL."inscription" ?>">INSCRIPTION</a></li>
             <li><a href="#">BOUTIQUE</a></li>
         </ul>
-        <a href="<?= URL."Accueil ?>" ?> " >
+        <a href="<?= URL."Accueil" ?> " >
             <img id="logo" src="<?= $viewHelper->getImg("logo.png") ?>" alt="logo"/>
         </a>
         
