@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
 body{
-    background-image: url('../img/accueil_fond.webp');
+    background-image: url('../img/Partenaires.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-color: rgba(0, 0, 0, 0.596);
@@ -14,7 +14,6 @@ body{
 .page{
     /* margin-top: 100px; */
     padding-top: 100px;
-    background-color: rgba(0, 0, 0, 0.274);
 }
 
 .titre{
