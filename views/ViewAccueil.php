@@ -9,8 +9,8 @@ $viewHelper = new ViewHelper ?>
     <div class= "partenaires">
         <div class="partenaire_img_container">
             <img class="logo_partenaire" src="<?= $viewHelper->getImg("logo_fedex.png") ?>" />
-            <img class="logo_partenaire" src="<?= $viewHelper->getImg("logo_fedex.png") ?>" />
-            <img class="logo_partenaire" src="<?= $viewHelper->getImg("logo_fedex.png") ?>"/>
+            <img class="logo_partenaire" src="<?= $viewHelper->getImg("logo_epa.png") ?>" />
+            <img class="logo_partenaire" src="<?= $viewHelper->getImg("logo_aeroville.png") ?>"/>
         </div>
     </div>
     
