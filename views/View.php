@@ -8,18 +8,20 @@ class View{
     private $_file;
     private $_title;
     private $_css;
+    private $_script;
 
 
-    public function __construct($action, $title, $css)
+    public function __construct($action, $title, $css, $script="")
     {
         $this->_css = "public/css/".$css.".css" ; 
         $this->_file = 'views/View'.$action.'.php';
         $this->_title = $title;
+        $this->_script = "public/js/".$script.".js";
     }
 
     public function generate($data){
         $content = $this->generatefile($this->_file, $data);
-        $view = $this->generateFile('views/template.php', ['titre'=>$this->_title, 'content'=>$content , "css"=> $this->_css]);
+        $view = $this->generateFile('views/template.php', ['titre'=>$this->_title, 'content'=>$content , "css"=> $this->_css, "script"=>$this->_script]);
         echo $view;
     }
 

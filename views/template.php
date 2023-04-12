@@ -16,12 +16,11 @@ $viewHelper = new ViewHelper ?>
 </head>
 <body>
 <?php require 'header.php' ?>
-
-
-    
-    <?= $content ?>
-
-
+    <?php echo $content ?>
 <?php require 'footer.php' ?>
 </body>
+
+
+<script src="public/js/navBar.js"></script>
+<script src="<?= $script?>"></script>
 </html>

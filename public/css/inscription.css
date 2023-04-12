@@ -6,9 +6,10 @@ body{
 }
 
 .container{
-    margin: 20px auto;
+    margin: 0 auto;
     width: 500px;
     padding: 20px;
+    padding-top: 170px;
     display: flex;
     flex-direction: column;
     background-color: #1188ac67;

@@ -11,7 +11,7 @@ class ControllerAccueil{
         if(isset($url) && count($url)>$nbParametresMax){
             throw new Exception("Page introuvable");
         }else{
-            $view = new View('Accueil', 'Accueil', 'accueil');
+            $view = new View('Accueil', 'Accueil', 'accueil', 'accueil');
             $view->generate([]);
         }
     }
