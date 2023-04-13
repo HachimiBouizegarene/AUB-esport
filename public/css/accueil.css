@@ -27,7 +27,7 @@ body{
 .centre{
     padding-top: 100px;
     color: rgb(255, 255, 255);
-    text-shadow: 0 0 10px rgb(255, 220, 220);
+    text-shadow: 0 0 8px rgb(255, 220, 220);
     font-size: 50px;
     width: 40%;
     cursor: pointer;
@@ -264,6 +264,8 @@ h1, h2{
 
 @media screen and (max-width: 600px){
 
+
+
     .date_lieu_container h1{
         font-size: 23px;  
      }
@@ -296,6 +298,7 @@ h1, h2{
 
     .page{
         padding-top: 70px;
+        background-image: url('../img/accueil_fond_phone.png')
     }
 }
 
