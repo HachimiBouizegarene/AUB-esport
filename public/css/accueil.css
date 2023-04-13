@@ -27,6 +27,7 @@ body{
 .centre{
     padding-top: 100px;
     color: rgb(255, 255, 255);
+    text-shadow: 0 0 10px rgb(218, 70, 255);
     font-size: 50px;
     width: 40%;
     cursor: pointer;
@@ -76,6 +77,7 @@ h1, h2{
 
 
 #btn_inscription{
+    text-shadow: 0 0 10px rgb(255, 255, 255);
     margin: auto;
     margin-top: 100px;
     display: block;
@@ -179,35 +181,74 @@ h1, h2{
 
 @media screen and (max-width: 1050px){
 
-    .centre h1 {
-        font-size: 1em;
-    }
-    .centre h2{
-        font-size: 0.8em;
-    }
+    
 
     .page{
         max-width: 90%;
         padding-top: 100px;
         display: grid;
+        grid-gap : 0;
         grid-template: 
         "c c"  
         "a a"
         "b b"  
     }
+   
     .centre{
+        padding-top: 0;
         grid-area: a;
         height: fit-content;
         width: 90%;
         margin: auto;
     }
+    .centre h1 {
+        font-size: 1em;
+        
+    }
+    .centre h2{
+        font-size: 0.8em;
+    }
+
+    #img_date_lieu{
+        display: none;
+    }
+
     .date_lieu_container{
         grid-area: b;
         width: 100%;
+        margin-top: 60px;
+        backdrop-filter : blur(5px);
+        background-color: rgba(0, 0, 0, 0.616);
     }
+
+    .date_lieu_container h1, .date_lieu_container h2{
+        transform: translate(0);
+        top : 0;
+        left: 0;
+        width: 100%;
+        color: rgb(255, 255, 255);
+        display: block;
+        position: relative;
+    }
+
+    .date_lieu_container h1{
+       font-size: 30px;  
+    }
+
+    
+    .date_lieu_container h2{
+        font-size: 20px;
+    }
+
+    .date_lieu_img_container{
+        display: flex;
+        flex-direction: column;
+    }
+
     .partenaires{
         grid-area: c;
         width: 100%;
+        height: fit-content;
     }
     .partenaire_img_container{
         flex-direction: row;
@@ -222,6 +263,15 @@ h1, h2{
 
 
 @media screen and (max-width: 600px){
+
+    .date_lieu_container h1{
+        font-size: 23px;  
+     }
+ 
+     
+     .date_lieu_container h2{
+         font-size: 16px;
+     }
 
     #btn_inscription{
         margin-top: 65px;
@@ -250,6 +300,15 @@ h1, h2{
 }
 
 @media screen and (max-width: 400px){
+
+    .date_lieu_container h1{
+        font-size: 18px;  
+     }
+ 
+     
+     .date_lieu_container h2{
+         font-size: 13px;
+     }
 
     #btn_inscription{
         margin-top: 60px;
