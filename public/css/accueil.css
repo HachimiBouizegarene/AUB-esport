@@ -185,6 +185,7 @@ h1, h2{
     
 
     .page{
+        height: auto;
         padding-top: 100px;
         display: grid;
         grid-gap : 0;
