@@ -2,7 +2,9 @@ const input = document.querySelectorAll("input, select")
 const form = document.querySelector("form")
 const errorSpan = document.querySelector("#errorSpan")
 
-console.log(form);
+const dateNaiss = document.querySelector("input#dateNaiss");
+dateNaiss.value = "4 avril, 2023"
+
 form.addEventListener("submit", (event)=>{
     event.preventDefault();
     let error = "";
@@ -71,5 +73,8 @@ function isEmailValid(email) {
 
 flatpickr("#dateNaiss", {
     "locale": "fr",
-    "maxDate": "01.01.2020"
+    altInput: true,
+    altFormat: "j F Y",
+    dateFormat: "Y-m-d",
+    defaultDate: "today"
 });
