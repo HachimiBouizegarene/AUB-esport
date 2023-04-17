@@ -11,7 +11,7 @@ class ControllerInscription{
         if(isset($url) && count($url)>$nbParametresMax){
             throw new Exception("Page introuvable");
         }else{
-            $view = new View('Inscription', 'Inscription', 'inscription');
+            $view = new View('Inscription', 'Inscription', 'inscription', 'inscription');
             $view->generate([]);
         }
     }

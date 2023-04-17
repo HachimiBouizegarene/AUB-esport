@@ -12,8 +12,9 @@
                 <input id="nom" name="nom"/>
             </div>
             <div>
-                <label for="sexe">Civilité *</label>
-                <select id="sexe" name="sexe">
+                <label for="civilite">Civilité *</label>
+                <select id="civilite" name="civilite">
+                <option value="" selected>--Choisissez votre civilité--</option>
                     <option value="homme">Homme</option>
                     <option value="femme">Femme</option>
                     <option value="non-binaire">Non-precise</option>
@@ -25,23 +26,20 @@
             </div>
             <div>
                 <label for="mail">Mail *</label>
-                <input id="mail" name="mail"/>
+                <input type="mail"id="mail" name="mail"/>
             </div>
 
             <div>
                 <label for="mdp">Mot de passe *</label>
-                <input id="mdp" name="mdp"/>
+                <input type="password" id="mdp" name="mdp"/>
             </div>
             <div>
                 <label for="mdpConf">Confirmer mot de passe *</label>
-                <input id="mdpConf" name="mdpConf"/>
+                <input type="password" id="mdpConf" name="mdpConf"/>
             </div>
-
-            
-
-            
             
             <button type="submit">Valider</button>
+            <span id="errorSpan"></span>
             
         </form>
     </div>

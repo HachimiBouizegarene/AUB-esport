@@ -5,5 +5,4 @@ openBtn.addEventListener("click", ()=>{
     }
 })
 const btns = document.querySelectorAll("header nav ul")
-console.log(btns);
 
