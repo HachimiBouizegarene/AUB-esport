@@ -1,24 +1,39 @@
 body{
-    background: linear-gradient(#126989, rgb(29, 29, 29));
+    background-color: black;
+}
+
+.page{
+    background-image: url('../img/accueil_fond.png');
     background-repeat: no-repeat;
-    background-size: 100%;
-    min-height: 100vh;
+    background-size: cover;
+    min-height: calc(100vh - var(--margin-height));
 }
 
 .container{
-    margin: 0 auto;
-    width: 500px;
+    color: white;
+    margin: 20px auto;
+    width: 900px;
     padding: 20px;
-    padding-top: 170px;
     display: flex;
     flex-direction: column;
-    background-color: #1188ac67;
+    background-color: #000000ab;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .container form{
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+    display: grid;
+    column-gap : 40px;
+}
+
+.container form div{
     display: flex;
     flex-direction: column;
+    width: 100%;
+}
+.container form div:nth-child(5){
+    grid-column: span 2;
 }
 
 .container form label{
@@ -32,8 +47,67 @@ body{
 }
 
 .container form button{
-    margin-top: 20px;
+    border: none;
+    background-color: #ffffff;
+    width: 100%;
+    margin-top: 50px;
+    grid-column: span 2;
     font-size: 20px;
     padding: 10px;
     cursor: pointer;
+}
+.container form button:hover{
+    background-color: #126989;;
+}
+
+
+@media screen and (max-width: 1050px){
+    .page{
+        background-image: url('../img/accueil_fond_phone.png');
+    }
+
+    .container{
+        width: 600px;
+    }
+
+    .container form label,.container form input,.container form select {
+        font-size:12px;
+    }
+    .container form button{
+
+        margin-top: 40px;
+        font-size: 15px;
+        padding: 8px;
+        cursor: pointer;
+    }
+
+
+
+}
+@media screen and (max-width: 700px){
+
+    .container{
+        width: 400px;
+    }
+
+    .container form {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+@media screen and (max-width: 500px){
+
+    .container{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .container h1{
+        text-align: center;margin-top: 30px;
+    }
+
+
+
 }

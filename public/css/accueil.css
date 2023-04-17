@@ -20,7 +20,7 @@ body{
     align-items: center;
     justify-content: space-between;
     min-height: fit-content;
-    height: calc(100vh - var(--margin-height));;
+    height: calc(100vh - var(--margin-height));
     max-height: 1400px;
     overflow: auto;
     overflow-y: overlay;
