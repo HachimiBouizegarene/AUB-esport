@@ -43,6 +43,7 @@ body{
 .container form input,.container form select{
     font-size: 20px;
     width: auto;
+    color: black;
     padding: 10px;
 }
 

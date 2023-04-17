@@ -1,8 +1,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://npmcdn.com/flatpickr/dist/l10n/fr.js"></script>
-Usage
-
 
     <div class="container">
         <h1>Inscription</h1>
@@ -27,7 +25,7 @@ Usage
             </div>
             <div>
                 <label for="dateNaiss">Date de naissance *</label>
-                <input id="dateNaiss" name="dateNaiss"/>
+                <input id="dateNaiss" type="date" name="dateNaiss"/>
             </div>
             <div>
                 <label for="mail">Mail *</label>
