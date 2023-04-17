@@ -15,6 +15,32 @@
     padding: 0;
     margin: 0;
     font-family: 'Pathway Gothic One', sans-serif;  
+   
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+        -webkit-box-shadow: none;
+        -webkit-box-sizing: border-box;
+        -webkit-column-count: 1;
+        -webkit-column-gap: 0;
+        -webkit-column-rule: none;
+        -webkit-filter: none;
+        -webkit-flex: 0 1 auto;
+        -webkit-flex-basis: auto;
+        -webkit-flex-direction: row;
+        -webkit-flex-flow: row wrap;
+        -webkit-flex-grow: 0;
+        -webkit-flex-shrink: 1;
+        -webkit-flex-wrap: nowrap;
+        -webkit-justify-content: flex-start;
+        -webkit-order: 0;
+        -webkit-perspective: none;
+        -webkit-perspective-origin: 50% 50%;
+        -webkit-transform: none;
+        -webkit-transform-origin: 50% 50%;
+        -webkit-transform-style: flat;
+        -webkit-transition: none;
+        -webkit-user-select: auto;
+    
 }
 
 header{
