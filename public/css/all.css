@@ -1,13 +1,21 @@
 /* Header */
 @import url('https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap');
+
+
+
+.page, header nav{
+    --margin-height: 140px;
+}
+.page{
+    padding-top : var(--margin-height);
+    background-color: var(--main-bg-color);
+}
+
 *{
-    
     padding: 0;
     margin: 0;
     font-family: 'Pathway Gothic One', sans-serif;  
 }
-
-
 
 header{
     width: 100%;
@@ -22,13 +30,14 @@ header nav{
     
     flex-direction: row;
     align-items: center;
-    max-width: 1600px;
+    max-width: 1920px;
     justify-content: space-between;
     margin: auto;
-    height: 140px;
+    height: var(--margin-height);
 }
 
 header nav ul{
+    margin: 20px;
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -87,15 +96,18 @@ header nav ul li a.link:hover{
   }
 
 @media screen and (max-width: 1600px){
+
+    
+    .page, header nav{
+        --margin-height: 120px;
+    }
     header nav ul li a.link{
         font-size: 18px;
         letter-spacing: 1px;
         padding: 8px; 
 
     }
-    header nav ul{
-        margin: 20px;
-    }
+
     img#logo{
         width: 180px;
     }
@@ -103,13 +115,11 @@ header nav ul li a.link:hover{
         width: 35px;
     }
 
-    header nav{
-        height: 120px;
-    }
     
 }
 
 @media screen and (max-width: 1050px){
+
     #openBtn{
         display: block;
         margin-left: 40px;
@@ -129,8 +139,8 @@ header nav ul li a.link:hover{
         transition: 0.2s all;
     }
 
-    header nav{
-        height: 100px;
+    .page, header nav{
+        --margin-height: 100px;
     }
 
     header nav ul.afficher{
@@ -176,8 +186,8 @@ header nav ul li a.link:hover{
 
 @media screen and (max-width: 600px){
 
-    header nav{
-        height: 70px;
+    .page, header nav{
+        --margin-height: 70px;
     }
     header nav ul li{
         margin: 15px 0;

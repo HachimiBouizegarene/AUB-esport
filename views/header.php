@@ -1,6 +1,5 @@
 
 
-<header>
     <nav>
         <a href="#" id="openBtn">
             <span class="burger-icon">
@@ -33,4 +32,3 @@
         </a>
         
     </nav>
-</header>

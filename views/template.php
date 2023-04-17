@@ -14,9 +14,14 @@ $viewHelper = new ViewHelper ?>
     <link rel="stylesheet" href="<?= $css ?>" />
     <title><?php echo $titre ?></title>
 </head>
+
 <body>
-<?php require 'header.php' ?>
-    <?php echo $content ?>
+    <header>
+        <?php require 'header.php' ?>
+    </header>
+    <div class="page">
+        <?php echo $content ?>
+    </div>
 <?php require 'footer.php' ?>
 </body>
 

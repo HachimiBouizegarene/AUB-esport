@@ -1,88 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
 
-body{
+/* font-family: 'Oswald', sans-serif; */
 
-    
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: rgb(0, 0, 0);
-    /* background: linear-gradient(#126989, black);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh; */
+body{
+    min-height: fit-content;
+    height: 100vh;
+    background-color: black;
 }
 
 .page{
-    max-width: 1920px;
     background-image: url('../img/accueil_fond.png');
     background-repeat: no-repeat;
+    background-size: cover;
     margin: auto;
-    display: flex;
-    flex-direction: row;
+    max-width: 1920px;
+    display: grid;
+    grid-template-columns: 450px auto 450px;
+    align-items: center;
     justify-content: space-between;
-    padding-top: 140px;
-    height: calc(100vh - 140px);
+    min-height: fit-content;
+    height: calc(100vh - var(--margin-height));;
+    max-height: 1400px;
+    overflow: auto;
+    overflow-y: overlay;
+}
+.page::-webkit-scrollbar{
+    width: 10px;
+    background-color: rgb(253, 253, 253);
 }
 
-.centre{
-    padding-top: 100px;
+.page::-webkit-scrollbar-thumb {
+
+    background-color: grey;
+  }
+#partenaires{
+    width: 250px;
+    align-items: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.47);
+}
+
+#partenaires img{
+    width:200px;
+
+}
+
+#titre{
     color: rgb(255, 255, 255);
     text-shadow: 0 0 8px rgb(255, 220, 220);
-    font-size: 50px;
-    width: 40%;
+    font-size: 40px;
     cursor: pointer;
-    margin-left: auto;
 }
 
-img#img_date_lieu{
+#titre h1, #titre h2{
+    white-space: nowrap;
     width: 100%;
-}
-
-.date_lieu_img_container{
-    width: 70%;
-    margin: auto;
-    position: relative;
-}
-
-.date_lieu_container{
-    margin-top: 170px;
-    width: 30%;
-}
-
-.date_lieu_container h1{
-    width: 100%;
-    font-family: 'Oswald', sans-serif;
-    color: rgba(19, 19, 19, 0.863);
-    position: absolute;
-    font-size: 1.4em;
-    top: 6.5%;
-    left: 50%;
-    transform: translateX(-45%);
-}
-
-.date_lieu_container h2{
-    width: 80%;
-    font-family: 'Oswald', sans-serif;
-    color: rgba(19, 19, 19, 0.863);
-    position: absolute;
-    top: 45%;
-    left: 55%;
-    font-size: 1.6em;
-    transform: translateX(-55%);
-}
-
-h1, h2{
     text-align: center;
 }
-
 
 #btn_inscription{
     text-shadow: 0 0 10px rgb(255, 255, 255);
     margin: auto;
     margin-top: 100px;
     display: block;
-    font-size: 70px;
+    font-size: 60px;
     text-decoration: none;
     color: white;
     width: fit-content;
@@ -96,241 +81,139 @@ h1, h2{
     color: black;
     background-color: white;
 }
-.partenaires{
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.61);
-}
 
-.partenaire_img_container{
+#date_lieu{
+    height: auto;
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
 }
 
-.partenaire_img_container img{
-    margin: 80px 0;
-    width: 220px;
+#date_lieu h1{
+    padding: 8px;
+    color: rgb(0, 0, 0);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    position: relative;
+    background-color: white;
+    transform: skew(-8deg);
 }
- 
+
+#date_lieu h1:nth-child(2){
+    margin-top: 30px;
+    margin-right: 22px;
+    font-size: 1.8em;
+}
+
+#date_lieu h1::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -11px;
+    right: 0;
+    width: 100%;
+    height: 8px;
+    background-image: linear-gradient(to right, red, rgb(204, 0, 204));
+  }
 
 @media screen and (max-width: 1600px){
+    #date_lieu h1{
+        font-size: 1.4em !important;
+    }
     .page{
-        padding-top: 120px;
-        height: calc(100vh - 120px);
-    }
-    .date_lieu_container h1{
-        font-size: 1.1em;
+        grid-template-columns: 350px auto 350px;
     }
 
-    .date_lieu_container h2{
-        font-size: 1.3em;
-        top: 45%;
-        
-    }
-
-    .centre h1 {
-        font-size: 1.2em;
-    }
-    .centre h2{
-        font-size: 1em;
-    }
     #btn_inscription{
-        margin-top: 100px;
-        font-size: 60px;
-        padding: 17px;
-        border: 5px solid white;
-
+        padding: 18px;
+        font-size: 50px;
     }
-    
+    #titre{
+        font-size: 35px;
+    }
 }
 
 @media screen and (max-width: 1300px){
+    #date_lieu h1{
+        font-size: 1.1em !important;
+    }
+
+    .page{
+        grid-template-columns: 250px auto 250px;
+    }
 
     #btn_inscription{
-        margin-top: 90px;
-        font-size: 55px;
-        padding: 17px;
-
-
+        padding: 15px;
+        font-size: 45px;
+    }
+    #titre{
+        font-size: 30px;
     }
 
-    .centre h1 {
-        font-size: 1.1em;
-    }
-    .centre h2{
-        font-size: 0.9em;
-    }
+    #partenaires {
+        width: 200px}
 
-    .date_lieu_container h1{
-        font-size: 0.9em;
-    }
-
-    
-
-    .date_lieu_container h2{
-        font-size: 1em;
-        top: 45%;
-    }
-    .partenaire_img_container img{
-        width:180px;
+    #partenaires img{
+        width:170px
     }
 }
-
 
 @media screen and (max-width: 1050px){
 
-    
-
     .page{
-        height: auto;
-        padding-top: 100px;
-        display: grid;
-        grid-gap : 0;
-        grid-template: 
-        "c c"  
-        "a a"
-        "b b"  
-    }
-   
-    .centre{
-        padding-top: 70px;
-        grid-area: a;
-        height: fit-content;
-        width: 90%;
-        margin: auto;
-    }
-    .centre h1 {
-        font-size: 1em;
-        
-    }
-    .centre h2{
-        font-size: 0.8em;
-    }
-
-    #img_date_lieu{
-        display: none;
-    }
-
-    .date_lieu_container{
-        grid-area: b;
-        padding-bottom: 20px;
-        padding-top: 10px;
-        width: 100%;
-        margin-top: 60px;
-        backdrop-filter : blur(5px);
-        background-color: rgba(0, 0, 0, 0.616);
-    }
-
-    .date_lieu_container h1, .date_lieu_container h2{
-        transform: translate(0);
-        top : 0;
-        left: 0;
-        width: 100%;
-        color: rgb(255, 255, 255);
-        display: block;
-        position: relative;
-    }
-
-    .date_lieu_container h1{
-       font-size: 30px;  
-    }
-
-    
-    .date_lieu_container h2{
-        font-size: 20px;
-        
-    }
-
-    .date_lieu_img_container{
+        background-image: url('../img/accueil_fond_phone.png');
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content:start;
     }
 
-    .partenaires{
-        grid-area: c;
-        width: 100%;
-        height: fit-content;
-    }
-    .partenaire_img_container{
+    #partenaires{
+        flex-wrap: wrap;
+        padding: 10px 0;
         flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
+        width: 100%;
+        height:fit-content;
     }
-    .partenaire_img_container img{
-        margin: 20px 0;
-        width: 130px;
+
+    #titre{
+        padding-top: 100px;
+    }
+    #partenaires img{
+        width:130px;
+    }
+    #date_lieu{
+        width: 70%;
+
+        padding-top: 100px;
     }
 }
-
 
 @media screen and (max-width: 600px){
-
-
-
-    .date_lieu_container h1{
-        font-size: 23px;  
-     }
- 
-     
-     .date_lieu_container h2{
-         font-size: 16px;
-     }
-
-    #btn_inscription{
-        margin-top: 65px;
-        font-size: 40px;
-        padding: 14px;
-        border: 4px solid white;
-
+    #partenaires img{
+        width:90px;
     }
 
-
-    .centre h1 {
-        font-size: 0.8em;
+    #date_lieu h1{
+        font-size: 1.0em !important;
     }
-    .centre h2{
-        font-size: 0.6em;
+    #titre{
+        font-size: 20px;
+        padding-top: 60px;
     }
+    #date_lieu{
 
-    .partenaire_img_container img{
-        margin: 15px 0;
-        width: 90px;
-    }
-
-    .page{
         padding-top: 70px;
-        background-image: url('../img/accueil_fond_phone.png')
     }
-}
-
-@media screen and (max-width: 400px){
-
-    .date_lieu_container h1{
-        font-size: 18px;  
-     }
- 
-     
-     .date_lieu_container h2{
-         font-size: 13px;
-     }
-
     #btn_inscription{
-        margin-top: 60px;
-        font-size: 30px;
         padding: 12px;
+        font-size:35px;
+        border: 4px solid white;
+        margin-top: 50px;
     }
 
-    .centre h1 {
-        font-size: 0.7em;
-    }
-    .centre h2{
-        font-size: 0.5em;
-    }
-    .partenaire_img_container img{
-        margin: 12px 0;
-        width: 70px;
-    }
 }
+
