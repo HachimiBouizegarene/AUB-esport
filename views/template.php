@@ -10,7 +10,7 @@ $viewHelper = new ViewHelper ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/css/all.css" />
+    <link rel="stylesheet" href="<?= URL ?>public/css/all.css" />
     <link rel="stylesheet" href="<?= $css ?>" />
 
     <title><?php echo $titre ?></title>
@@ -27,6 +27,6 @@ $viewHelper = new ViewHelper ?>
 </body>
 
 
-<script src="public/js/navBar.js"></script>
+<script src="<?= URL ?>public/js/navBar.js"></script>
 <script src="<?= $script?>"></script>
 </html>

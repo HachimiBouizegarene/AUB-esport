@@ -13,10 +13,10 @@ class View{
 
     public function __construct($action, $title, $css, $script="")
     {
-        $this->_css = "public/css/".$css.".css" ; 
+        $this->_css = URL."public/css/".$css.".css" ; 
         $this->_file = 'views/View'.$action.'.php';
         $this->_title = $title;
-        $this->_script = "public/js/".$script.".js";
+        $this->_script = URL."public/js/".$script.".js";
     }
 
     public function generate($data){

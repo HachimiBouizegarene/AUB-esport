@@ -9,6 +9,7 @@ class Utilisateur{
     private $_mdp;
     private $_mail;
     private $_dateNaiss;
+    private $_codeVerif;
 
     public function __construct(array $data)
     {
@@ -30,6 +31,13 @@ class Utilisateur{
         $id = (int) $id;
         if($id > 0){
             $this->_id = $id;
+        }
+    }
+
+    public function setCodeVerif($code){
+        $code = (int) $code;
+        if($code >= 1000000){
+            $this->_codeVerif= $code;
         }
     }
 
@@ -95,6 +103,10 @@ class Utilisateur{
 
     public function getMail(){
         return $this->_mail;
+    }
+
+    public function getCodeVerif(){
+        return $this->_codeVerif;
     }
 
 }

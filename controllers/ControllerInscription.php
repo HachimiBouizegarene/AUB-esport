@@ -5,37 +5,66 @@ use Exception;
 use View\View;
 use Model\Utilisateur;
 use Model\UtilisateurManager;
+use Model\EmailManager;
 
 class ControllerInscription{
 
     private UtilisateurManager $utilisateurManager;
+    private EmailManager $emailManager;
 
     public function __construct($url)
     {
         $this->utilisateurManager = new UtilisateurManager();
+        $this->emailManager = new EmailManager();
 
-        $nbParametresMax = 1;
+        $nbParametresMax = 2;
         if(isset($url) && count($url)>$nbParametresMax){
             throw new Exception("Page introuvable");
         }else{
-            //inscription
-            $error = "";
-            if(count($_POST) > 0){
-                $register = $this->register();
-                $error = $register === true ? false : $register;
-                if($error == false){
-                    header("Location: ".URL."Accueil");
+
+            if(count($url)==1){
+               $this->principalePage();
+            }
+            elseif(count($url)==2){
+                if($url[1]==="confirmation"){
+                    $this->confirmationMailPage();
+                }
+                else{
+                    throw new Exception("Page introuvable");
                 }
             }
-            $view = new View('Inscription', 'Inscription', 'inscription', 'inscription');
-            $view->generate(['error'=> $error== false ? "" : $error]);
+            else{
+                throw new Exception("Page introuvable");
+            }
+            
         }
     }
 
 
+    public function confirmationMailPage(){
+        $view = new View('ConfirmationMail', 'Confirmation mail', 'ViewConfirmationMail');
+        $view->generate([]);
+    }
+
+    public function principalePage(){
+        $error = "";
+        if(count($_POST) > 0){
+            $register = $this->register();
+            $error = $register === true ? false : $register;
+            if($error == false){
+                header("Location: ".URL."Inscription/confirmation");
+            }
+        }
+        $view = new View('Inscription', 'Inscription', 'inscription', 'inscription');
+        $view->generate(['error'=> $error== false ? "" : $error]);
+    }
+
+
     public function register(){
+        $codeVerif = rand(1000000, 9999999);
+
         $data = ['nom' =>  $_POST['nom'], 'prenom'=>  $_POST['prenom'], 'dateNaiss'=>  $_POST['dateNaiss'], "sexe" =>  $_POST['sexe'],
-        'mail' =>  $_POST['mail'], 'mdp'=> $_POST['mdp']];
+        'mail' =>  $_POST['mail'], 'mdp'=> $_POST['mdp'], "codeVerif"=> $codeVerif];
         $mdpConf = $_POST['mdpConf'];
 
         //verifeir que touts les champs sont remplis
@@ -65,6 +94,7 @@ class ControllerInscription{
         try{  
             $utilisateur = new Utilisateur($data);
             $this->utilisateurManager->register($utilisateur);
+            $this->emailManager->sendConfirmationMail($utilisateur->getMail(), $codeVerif);
             return true;
         }catch(Exception $e){
             return "Erreur avec le serveur, veuillez reesayer plus tard !";
