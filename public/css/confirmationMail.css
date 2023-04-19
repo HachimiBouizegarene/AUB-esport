@@ -18,8 +18,9 @@
 .container p{
     color: black;
     font-size: 23px;
-    width: 100%;
-    padding: 10px 0;
+    width: auto;
+
+    padding: 10px 10px;
     text-align: center;
     background-color: rgb(255, 255, 255);
 }
@@ -40,8 +41,6 @@
     padding: 10px;
     font-size: 20px;
 }
-
-
 
 .container form label{
     font-size: 25px;
@@ -65,12 +64,15 @@
 .errorSpan{
     grid-column: span 2;
     font-size: 20px;
-    padding-top: 20px;
     color: red;
     text-align: center;
 }
 
 @media screen and (max-width: 1050px){
+
+    .container h1{
+        font-size: 1.8em;
+    }
 
     .container p{
 

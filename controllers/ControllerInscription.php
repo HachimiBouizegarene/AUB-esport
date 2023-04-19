@@ -56,7 +56,7 @@ class ControllerInscription{
                 exit;
             }
         }
-        $view = new View('ConfirmationMail', 'Confirmation mail', 'confirmationMail');
+        $view = new View('ConfirmationMail', 'Confirmation mail', 'confirmationMail', 'confirmationMail');
         $view->generate(['error'=>$error]);
 
     }
