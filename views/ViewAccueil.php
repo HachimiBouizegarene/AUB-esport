@@ -7,7 +7,6 @@ $viewHelper = new ViewHelper ?>
 
 <!-- <div class='page'> -->
 
-
     <div id="partenaires">
         <img  src="<?= $viewHelper->getImg("logo_fedex.png") ?>" />
         <img  src="<?= $viewHelper->getImg("logo_epa.png") ?>" />

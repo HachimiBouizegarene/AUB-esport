@@ -15,8 +15,8 @@
                 <input id="nom" name="nom"/>
             </div>
             <div>
-                <label for="civilite">Civilité *</label>
-                <select id="civilite" name="civilite">
+                <label for="sexe">Civilité *</label>
+                <select id="sexe" name="sexe">
                 <option value="" selected>--Choisissez votre civilité--</option>
                     <option value="homme">Homme</option>
                     <option value="femme">Femme</option>
@@ -42,7 +42,8 @@
             </div>
             
             <button type="submit">Valider</button>
-            <span id="errorSpan"></span>
+            <span id="errorJs" class="errorSpan"></span>
+            <span id="errorPhp" class="errorSpan"><?= $error ?></span>
             
         </form>
     </div>

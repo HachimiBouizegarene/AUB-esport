@@ -1,11 +1,12 @@
 const input = document.querySelectorAll("input, select")
 const form = document.querySelector("form")
-const errorSpan = document.querySelector("#errorSpan")
-
+const errorJs = document.querySelector("#errorJs")
+const errorPhp = document.querySelector("#errorPhp")
 const dateNaiss = document.querySelector("input#dateNaiss");
 dateNaiss.value = "4 avril, 2023"
 
 form.addEventListener("submit", (event)=>{
+    errorPhp.innerHTML = "";
     event.preventDefault();
     let error = "";
     //verifier si tous les champs somt remplis
@@ -49,7 +50,7 @@ form.addEventListener("submit", (event)=>{
         }
     }
     if(error ==="") form.submit();
-    errorSpan.innerHTML = error;
+    errorJs.innerHTML = error;
 })
 
 

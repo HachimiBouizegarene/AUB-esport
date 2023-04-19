@@ -62,7 +62,7 @@ body{
     background-color: #126989;;
 }
 
-#errorSpan{
+.errorSpan{
     grid-column: span 2;
     font-size: 20px;
     padding-top: 20px;

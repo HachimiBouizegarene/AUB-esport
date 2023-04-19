@@ -2,6 +2,7 @@
     "name": "hachi/aub-esport",
     "autoload": {
         "psr-4": {
+            "Model\\" : "models/",
             "Controller\\": "controllers/",
             "Helper\\" : "helpers/",
             "View\\" : "views/"
