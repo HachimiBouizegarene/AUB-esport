@@ -11,7 +11,7 @@ class UtilisateurManager extends Model{
 
     public function register($utilisateur){
 
-        $req = $this->getBdd()->prepare("INSERT INTO `utilisateurs` (`id`, `prenom`, `nom`, `sexe`, `dateNaiss`, `mail`, `mdp`, `codeVerif`, `verife`)
+        $req = $this->getBdd()->prepare("INSERT INTO `utilisateurs` (`id`, `prenom`, `nom`, `sexe`, `dateNaiss`, `mail`, `mdp`, `codeVerif`, `verifie`)
         VALUES (NULL, :prenom, :nom, :sexe, :dateNaiss, :mail, :mdp, :codeVerif, 0)");
 
         $req->bindValue(':nom', $utilisateur->getNom());
@@ -30,5 +30,24 @@ class UtilisateurManager extends Model{
         $req->bindValue(":mail", $mail);
         $req->execute();
         return $req->rowCount() > 0;
+    }
+
+    public function verifCodeConfMail($mail, $codeVerif){
+        $req =  $this->getBdd()->prepare("SELECT codeVerif FROM utilisateurs WHERE mail = :mail");
+        $req->bindValue(":mail", $mail);
+        $req->execute();
+
+
+        $codeVerifMail = $req->fetch(\PDO::FETCH_ASSOC)['codeVerif'];
+        if($codeVerifMail === (int) $codeVerif){
+            $req = $this->getBdd()->prepare("UPDATE `utilisateurs` SET `verifie` = '1' WHERE `utilisateurs`.`mail` = :mail");
+            $req->bindValue(":mail", $mail);
+            $req->execute();
+            unset($_SESSION['mailConf']);
+            return true;
+        }else{
+            return false;
+        }
+        
     }
 }

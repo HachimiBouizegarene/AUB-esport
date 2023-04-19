@@ -42,8 +42,23 @@ class ControllerInscription{
 
 
     public function confirmationMailPage(){
-        $view = new View('ConfirmationMail', 'Confirmation mail', 'ViewConfirmationMail');
-        $view->generate([]);
+        $error = "";
+        if(!$_SESSION['mailConf']){
+            header("Location: ".URL."Accueil");
+            exit;
+        }
+        if(isset($_POST['codeConf'])){
+            $verif = $this->utilisateurManager->verifCodeConfMail($_SESSION['mailConf'], $_POST['codeConf']);
+            if($verif === false){
+                $error = "Le code de confirmation n'est pas valide";
+            }else{
+                header("Location: ".URL."Connection");
+                exit;
+            }
+        }
+        $view = new View('ConfirmationMail', 'Confirmation mail', 'confirmationMail');
+        $view->generate(['error'=>$error]);
+
     }
 
     public function principalePage(){
@@ -52,7 +67,9 @@ class ControllerInscription{
             $register = $this->register();
             $error = $register === true ? false : $register;
             if($error == false){
+                $_SESSION['mailConf'] = $_POST['mail'];
                 header("Location: ".URL."Inscription/confirmation");
+                exit;
             }
         }
         $view = new View('Inscription', 'Inscription', 'inscription', 'inscription');
