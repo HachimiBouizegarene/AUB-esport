@@ -23,6 +23,9 @@ class ControllerInscription{
             if(count($_POST) > 0){
                 $register = $this->register();
                 $error = $register === true ? false : $register;
+                if($error == false){
+                    header("Location: ".URL."Accueil");
+                }
             }
             $view = new View('Inscription', 'Inscription', 'inscription', 'inscription');
             $view->generate(['error'=> $error== false ? "" : $error]);
