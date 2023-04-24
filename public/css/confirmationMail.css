@@ -9,7 +9,7 @@
 }
 
 .page{
-    background-image: url('../img/accueil_fond.png');
+    background-image: url('../img/accueil_fond.webp');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: calc(100vh - var(--margin-height));
@@ -80,7 +80,7 @@
 
     }
     .page{
-        background-image: url('../img/accueil_fond_phone.png');
+        background-image: url('../img/accueil_fond_phone.webp');
     }
 
     .container{

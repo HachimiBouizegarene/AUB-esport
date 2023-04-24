@@ -3,7 +3,7 @@ body{
 }
 
 .page{
-    background-image: url('../img/accueil_fond.png');
+    background-image: url('../img/accueil_fond.webp');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: calc(100vh - var(--margin-height));
@@ -72,7 +72,7 @@ body{
 
 @media screen and (max-width: 1050px){
     .page{
-        background-image: url('../img/accueil_fond_phone.png');
+        background-image: url('../img/accueil_fond_phone.webp');
     }
 
     .container{

@@ -120,6 +120,77 @@ header nav ul li a.link:hover{
     margin: 7px 0;
   }
 
+
+body{
+}
+/* animation chargement page */
+
+#html-spinner{
+    pointer-events: none;
+    display: none;
+    opacity: 1; /* rendre l'élément complètement opaque au début */
+    transition: opacity 0.5s ease-in-out; 
+    width:40px;
+    height:40px;
+    position: fixed;
+    z-index: 999999;
+    top: 50%;
+    left: 50%;
+    border:4px solid #ffffff;
+    border-top:4px solid rgb(27, 27, 27);
+    margin-top: -20px; 
+    margin-left: -20px;
+    border-radius:50%;
+}
+#ecran-noir{
+    pointer-events: none;
+    opacity: 1; /* rendre l'élément complètement opaque au début */
+    transition: opacity 0.3s ease-in-out; 
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999998;
+    background-color: black;
+}
+
+
+
+
+#html-spinner{
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1.2s;
+    -webkit-animation-name: rotate;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    
+    -moz-transition-property: -moz-transform;
+    -moz-animation-name: rotate; 
+    -moz-animation-duration: 1.2s; 
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    
+    transition-property: transform;
+    animation-name: rotate; 
+    animation-duration: 1.2s; 
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  
+  @-webkit-keyframes rotate {
+      from {-webkit-transform: rotate(0deg);}
+      to {-webkit-transform: rotate(360deg);}
+  }
+  
+  @-moz-keyframes rotate {
+      from {-moz-transform: rotate(0deg);}
+      to {-moz-transform: rotate(360deg);}
+  }
+  
+  @keyframes rotate {
+      from {transform: rotate(0deg);}
+      to {transform: rotate(360deg);}
+  }
+
 @media screen and (max-width: 1600px){
 
     

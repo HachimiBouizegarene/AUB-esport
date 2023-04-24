@@ -17,6 +17,8 @@ $viewHelper = new ViewHelper ?>
 </head>
 
 <body>
+    <div id="ecran-noir"></div>
+    <div id="html-spinner"></div>
     <header>
         <?php require 'header.php' ?>
     </header>
@@ -27,6 +29,6 @@ $viewHelper = new ViewHelper ?>
 </body>
 
 
-<script src="<?= URL ?>public/js/navBar.js"></script>
+<script src="<?= URL ?>public/js/all.js"></script>
 <script src="<?= $script?>"></script>
 </html>
