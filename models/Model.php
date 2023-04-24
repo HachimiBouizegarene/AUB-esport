@@ -6,7 +6,7 @@ abstract class Model{
 
 
     private static function setBdd(){
-        self::$_bdd = new \PDO('mysql:host='.$_ENV['HOST'].";dbname=".$_ENV['DB_NAME'].";charset=utf8", $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
+        self::$_bdd = new \PDO('mysql:host='.$_ENV['DB_HOST'].";dbname=".$_ENV['DB_NAME'].";charset=utf8", $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
     }
 
     protected function getBdd(){

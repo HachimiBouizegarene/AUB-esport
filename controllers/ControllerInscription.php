@@ -78,41 +78,47 @@ class ControllerInscription{
 
 
     public function register(){
-        $codeVerif = rand(1000000, 9999999);
-
-        $data = ['nom' =>  $_POST['nom'], 'prenom'=>  $_POST['prenom'], 'dateNaiss'=>  $_POST['dateNaiss'], "sexe" =>  $_POST['sexe'],
-        'mail' =>  $_POST['mail'], 'mdp'=> $_POST['mdp'], "codeVerif"=> $codeVerif];
-        $mdpConf = $_POST['mdpConf'];
-
-        //verifeir que touts les champs sont remplis
-        foreach($data as $key=>$value){
-            if($value == "" | $value == null){
-                return "Veuillez remplir tous les champs";
-            }
-        }
-        //verifier que le mail est valide et pas deja enregistree
-        if (!filter_var($data['mail'], FILTER_VALIDATE_EMAIL)) {
-            return "Le mail n'est pas valide";
-        }
-        if($this->utilisateurManager->mailExist($data['mail'])){
-            return "Ce mail est deja utilisee";
-        }
-
-        //verifier que les mots de passe correspondent
-        if($data['mdp'] !== $mdpConf){
-            return "les mots de passe ne correspondent pas";
-        }
-
-        //verifier que le mot de pass est assez long
-        if(strlen($data['mdp'])<8){
-            return "le mot de passe est trop court";
-        }
-
         try{  
+            $codeVerif = rand(1000000, 9999999);
+
+            $data = ['nom' =>  $_POST['nom'], 'prenom'=>  $_POST['prenom'], 'dateNaiss'=>  $_POST['dateNaiss'], "sexe" =>  $_POST['sexe'],
+            'mail' =>  $_POST['mail'], 'mdp'=> $_POST['mdp'], "codeVerif"=> $codeVerif];
+            $mdpConf = $_POST['mdpConf'];
+    
+            //verifeir que touts les champs sont remplis
+            foreach($data as $key=>$value){
+                if($value == "" | $value == null){
+                    return "Veuillez remplir tous les champs";
+                }
+            }
+            //verifier que le mail est valide et pas deja enregistree
+            if (!filter_var($data['mail'], FILTER_VALIDATE_EMAIL)) {
+                return "Le mail n'est pas valide";
+            }
+            if($this->utilisateurManager->mailExist($data['mail'])){
+                return "Ce mail est deja utilisee";
+            }
+    
+            //verifier que les mots de passe correspondent
+            if($data['mdp'] !== $mdpConf){
+                return "les mots de passe ne correspondent pas";
+            }
+    
+            //verifier que le mot de pass est assez long
+            if(strlen($data['mdp'])<8){
+                return "le mot de passe est trop court";
+            }
+
+
             $utilisateur = new Utilisateur($data);
             $this->utilisateurManager->register($utilisateur);
-            $this->emailManager->sendConfirmationMail($utilisateur->getMail(), $codeVerif);
-            return true;
+            $confirmationMail = $this->emailManager->sendConfirmationMail($utilisateur->getMail(), $codeVerif);
+            if($confirmationMail){
+                return true;
+            }else{
+                $this->utilisateurManager->delete($utilisateur);
+                throw new Exception("Erreure lors de l'envoi du mail");
+            }
         }catch(Exception $e){
             return "Erreur avec le serveur, veuillez reesayer plus tard !";
         }

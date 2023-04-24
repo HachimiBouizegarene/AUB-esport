@@ -25,6 +25,16 @@ class UtilisateurManager extends Model{
         $req->execute();
     }
 
+    public function delete($utilisateur){
+
+        $req = $this->getBdd()->prepare("DELETE FROM utilisateurs WHERE `utilisateurs`.`mail` = :mail");
+
+        $req->bindValue(':mail', $utilisateur->getMail());
+
+        $req->execute();
+    }
+
+
     public function mailExist($mail){
         $req =  $this->getBdd()->prepare("SELECT * FROM utilisateurs WHERE mail = :mail");
         $req->bindValue(":mail", $mail);

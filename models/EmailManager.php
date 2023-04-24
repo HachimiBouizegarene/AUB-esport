@@ -9,26 +9,29 @@ use PHPMailer\PHPMailer\Exception;
 
 class EmailManager{
     public function sendConfirmationMail($to, $code){
-        $mail = new PHPMailer(true);
-        //Server settings
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-        $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host       = 'smtp-aubesport.alwaysdata.net';                     //Set the SMTP server to send through
-        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'aubesport@alwaysdata.net';                     //SMTP username
-        $mail->Password   = 'aubesport93300@';                               //SMTP password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-        $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+        try{
+            $mail = new PHPMailer(true);
+            //Server settings
+            $mail->SMTPDebug = SMTP::DEBUG_SERVER;                     
+            $mail->isSMTP();                                            
+            $mail->Host       = $_ENV['MAIL_HOST'];                     
+            $mail->SMTPAuth   = true;                                   
+            $mail->Username   = $_ENV['MAIL_USERNAME'];                     
+            $mail->Password   = $_ENV['MAIL_PASSWORD'];                            
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
+            $mail->Port       = 465;                                    
+            $mail->setFrom('ne-pas-repondre@aub-esport.fr', 'aub-Esport');
+            $mail->addAddress($to);     
+            //Content
+            $mail->isHTML(true);                                 
+            $mail->Subject = 'Code confirmation';
+            $mail->Body    = 'Voici votre code de confirmation <b>'.$code.'</b>';
+            $mail->send();
+            return true;
+        }catch(Exception $e){
+            return false;
+        }
+
         
-        //Recipients
-        $mail->setFrom('ne-pas-repondre@aub-esport.fr', 'aub-Esport');
-        $mail->addAddress($to);     //Add a recipient
-        
-        //Content
-        $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Code confirmation';
-        $mail->Body    = 'Voici votre code de confirmation <b>'.$code.'</b>';
-        
-        $mail->send();
     }
 }

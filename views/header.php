@@ -25,9 +25,9 @@
             <li><a class="link" href="#">PARTENAIRES</a></li>
             <li><a class="link" href="#">CONTACT</a></li>
             <li>
-            <a href="#" ><img id="ic_account"  src="<?= $viewHelper->getImg("ic_account.svg") ?> "alt="compte"/></a></li>
+            <a href="<?= URL."connexion" ?>" ><img id="ic_account"  src="<?= $viewHelper->getImg("ic_account.svg") ?> "alt="compte"/></a></li>
         </ul>
-        <a href="#" id="a_ic_account">
+        <a href="<?= URL."connexion" ?>" id="a_ic_account">
             <img id="ic_account"  src="<?= $viewHelper->getImg("ic_account.svg") ?> "alt="compte">
         </a>
         

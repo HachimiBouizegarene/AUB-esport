@@ -1,0 +1,109 @@
+.page{
+    background-image: url('../img/accueil_fond.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: calc(100vh - var(--margin-height));
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.page div{
+    color: white;
+    width: 400px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #000000ab;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    height: fit-content;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+
+.page div.inscription a{
+    display: block;
+    padding: 10px;
+    color: #000;
+    font-size: 30px;
+    background-color: rgb(255, 255, 255);
+    width: auto;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.page div.inscription p, .page div.inscription h1{
+    display: block;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 30px;
+    width: auto;
+}
+
+
+.page div.connexion h1{
+    margin-bottom: 15px;
+
+}
+
+.page div.connexion form{
+    display: flex;
+    flex-direction: column;
+}
+
+.page div.connexion form input{
+    padding: 12px;
+    margin-bottom: 30px;
+    font-size: 20px
+}
+
+.page div.connexion form label{
+    font-size: 20px;
+    padding: 7px 0;
+}
+
+.page div.connexion form button{
+    border: none;
+    font-size: 30px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.page div.connexion form button:hover, .page div.inscription a:hover{
+    background-color: #ffffffd7;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1050px){
+
+    .page{
+        background-image: url('../img/accueil_fond_phone.png');
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .page div.inscription p, .page div.inscription h1, .page div.connexion h1{
+
+        font-size: 25px;
+    }
+
+    .page div.connexion form label, .page div.connexion form input{
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .page div{
+        width: 100%;
+
+        margin: 0;
+        margin-bottom: 20px;
+    }
+
+  
+    
+}
