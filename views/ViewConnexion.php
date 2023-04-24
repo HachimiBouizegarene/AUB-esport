@@ -1,11 +1,11 @@
 <div class="connexion">
     <h1>Connexion</h1>
-    <form>
+    <form method="POST">
         <label for="mail">* Adresse mail</label>
         <input id="mail" name="mail" type="text">
 
-        <label for="password">* Mot de passe</label>
-        <input id="password" name="password" type="password">
+        <label for="mdp">* Mot de passe</label>
+        <input id="mdp" name="mdp" type="mdp">
 
         <button type="submit">Se connecter</button>
     </form>

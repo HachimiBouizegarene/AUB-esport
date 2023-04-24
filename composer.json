@@ -5,7 +5,8 @@
             "Model\\" : "models/",
             "Controller\\": "controllers/",
             "Helper\\" : "helpers/",
-            "View\\" : "views/"
+            "View\\" : "views/",
+            "Service\\" :"services/"
         }
     },
     "authors": [

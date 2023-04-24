@@ -34,6 +34,30 @@ class UtilisateurManager extends Model{
         $req->execute();
     }
 
+    public function verifyCoords($mail, $mdp){  
+
+        $req = $this->getBdd()->prepare("SELECT mdp, id FROM utilisateurs WHERE `utilisateurs`.`mail` = :mail");
+
+        $req->bindValue(':mail', $mail);
+
+        $req->execute();
+
+        if($req->rowCount() === 0 ) {
+            return "Aucun compte ne correspond a cette adresse mail";
+        }elseif($req->rowCount() === 1){
+            $resultat = $req->fetch(\PDO::FETCH_ASSOC);
+            $getMdp = $resultat['mdp'];
+            if($mdp==$getMdp){
+                return $resultat['id'];
+            }else{
+                return "le mot de passe est incorrect";
+            }
+        }else{
+            return "Une erreure s'est produite, veuillez contacter le service client !";
+        }
+        
+    }
+
 
     public function mailExist($mail){
         $req =  $this->getBdd()->prepare("SELECT * FROM utilisateurs WHERE mail = :mail");

@@ -5,7 +5,7 @@ use Exception;
 use View\View;
 use Model\Utilisateur;
 use Model\UtilisateurManager;
-use Model\EmailManager;
+use Service\EmailManager;
 
 class ControllerInscription{
 
