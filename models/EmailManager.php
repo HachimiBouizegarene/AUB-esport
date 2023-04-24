@@ -11,8 +11,7 @@ class EmailManager{
     public function sendConfirmationMail($to, $code){
         try{
             $mail = new PHPMailer(true);
-            //Server settings
-            $mail->SMTPDebug = SMTP::DEBUG_SERVER;                     
+            //Server settings                
             $mail->isSMTP();                                            
             $mail->Host       = $_ENV['MAIL_HOST'];                     
             $mail->SMTPAuth   = true;                                   
