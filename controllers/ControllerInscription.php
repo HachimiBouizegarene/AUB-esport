@@ -52,7 +52,7 @@ class ControllerInscription{
             if($verif === false){
                 $error = "Le code de confirmation n'est pas valide";
             }else{
-                header("Location: ".URL."Connection");
+                header("Location: ".URL."Connexion");
                 exit;
             }
         }
