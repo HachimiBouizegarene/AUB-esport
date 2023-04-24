@@ -1,6 +1,9 @@
 <?php
 namespace Helper;
 
+use Exception;
+use Throwable;
+
 class JWT{
     public function generate(array $header, array $payload, string $secret, int $validity = 60 * 60 * 24 * 15):string{
 
@@ -25,8 +28,15 @@ class JWT{
     }
 
     public function check($token, $secret): bool{
-        $base64Header = base64_encode(json_encode($this->getHeader($token)));
-        $base64payload = base64_encode(json_encode($this->getPayload($token)));
+        $header = $this->getHeader($token);
+        $payload = $this->getPayload($token);
+
+        if(!is_array($header) || !is_array($payload)){
+            return false;
+        }
+
+        $base64Header = base64_encode(json_encode($header));
+        $base64payload = base64_encode(json_encode($payload));
         $base64Secret = base64_encode($secret);
 
         //nettoyage 
@@ -42,19 +52,31 @@ class JWT{
     }
 
 
-    public function getHeader(string $token): array{
-        $array = explode("." ,$token);
-        $headerEncoded =  $array[0];
-        $headerDecoded = json_decode(base64_decode($headerEncoded), true);
-        return $headerDecoded;
+    public function getHeader(string $token){
+        try{
+            $array = explode("." ,$token);
+            $headerEncoded =  $array[0];
+            $headerDecoded = json_decode(base64_decode($headerEncoded), true);
+            return $headerDecoded;
+        }catch(Throwable $e){
+            return false;
+        }
+        
     }
 
     public function getPayload(string $token){
-        $array = explode("." ,$token);
-        $headerEncoded =  $array[1];
-        $headerDecoded = json_decode(base64_decode($headerEncoded), true);
-        return $headerDecoded;
+
+        try{
+            $array = explode("." ,$token);
+            $headerEncoded =  $array[1];
+            $headerDecoded = json_decode(base64_decode($headerEncoded), true);
+            return $headerDecoded;
+        }catch(Throwable $e){
+            return false;
+        }
+        
     }
+
 
     //voir si le token est expiree
 }

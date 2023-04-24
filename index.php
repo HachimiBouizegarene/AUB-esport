@@ -1,5 +1,5 @@
 <?php
-
+ini_set('display_errors', 'Off');
 //demande mot de pass pour entrer dans le site
 define("WEBSITE_PASSEWORD", "aubesport93300@");
 

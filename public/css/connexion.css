@@ -72,6 +72,12 @@
     background-color: #ffffffd7;
 }
 
+.errorSpan{
+    font-size: 18px;
+    padding-top: 20px;
+    color: red;
+    text-align: center;
+}
 
 a{
     text-decoration: none;
@@ -97,6 +103,9 @@ a{
 }
 
 @media screen and (max-width: 500px){
+    .errorSpan{
+        font-size: 15px;
+    }
     .page div{
         width: 100%;
 

@@ -8,6 +8,8 @@
         <input id="mdp" name="mdp" type="mdp">
 
         <button type="submit">Se connecter</button>
+        <span id="errorPhp" class="errorSpan"><?= $error ?></span>
+        <span id="errorJs" class="errorSpan"></span>
     </form>
 </div>
 
