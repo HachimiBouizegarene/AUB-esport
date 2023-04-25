@@ -58,6 +58,20 @@ class UtilisateurManager extends Model{
         
     }
 
+    public function getUtilisateur($id){
+        $req = $this->getBdd()->prepare("SELECT * FROM utilisateurs WHERE `utilisateurs`.`id` = :id");
+
+        $req->bindValue(':id', $id);
+
+        $req->execute();
+        if($req->rowCount() !== 1) {
+            return false;
+        }else{
+            return new Utilisateur($req->fetch(\PDO::FETCH_ASSOC));
+        }
+        
+    }
+
 
     public function mailExist($mail){
         $req =  $this->getBdd()->prepare("SELECT * FROM utilisateurs WHERE mail = :mail");

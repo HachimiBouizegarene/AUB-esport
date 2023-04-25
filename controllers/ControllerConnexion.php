@@ -38,16 +38,22 @@ class ControllerConnexion{
 
         // Vérifier si l'utilisateur a soumis le formulaire de connexion
         if(sizeof($_POST) > 0){
-            $response = $this->utilisateurManager->verifyCoords($_POST['mail'], $_POST['mdp']);
+            try{
+                $response = $this->utilisateurManager->verifyCoords($_POST['mail'], $_POST['mdp']);
+            }
+            catch(Exception $e){
+                $error = "Erreur avec le serveur, veuillez reesayer plus tard !";
+            }
 
-            // Vérifier si les identifiants de connexion sont valides
-            if(is_int($response)){
-                $id = $response;
-                $this->connectUser($id);
-                header("Location: ".URL."EspaceMembre");
-                return;
-            }else{
-                $error = $response;
+            if(!empty($response)){
+                if(is_int($response)){
+                    $id = $response;
+                    $this->connectUser($id);
+                    header("Location: ".URL."EspaceMembre");
+                    return;
+                }else{
+                    $error = $response;
+                }
             }
         }
 

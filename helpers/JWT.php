@@ -64,6 +64,16 @@ class JWT{
         
     }
 
+    public function getId(string $token){
+        $payload = $this->getPayload($token);
+        if(is_array($payload)){
+            if(isset($payload['id'])){
+                return $payload['id'];
+            }
+        }
+        return false;
+    }
+
     public function getPayload(string $token){
 
         try{
